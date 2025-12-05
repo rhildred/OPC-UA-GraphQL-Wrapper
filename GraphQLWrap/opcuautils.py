@@ -382,7 +382,15 @@ class OPCUAServer(object):
 
         self.check_connection()
         start = time.time_ns()
-        result = self.client.uaclient.read(params)
+        result = []
+        NodesToRead = params.NodesToRead
+        while len(NodesToRead) > 0:
+            params.NodesToRead = NodesToRead[:100]
+            if len(NodesToRead) > 100:
+                NodesToRead = NodesToRead[100:]
+            else:
+                NodesToRead = []
+            result += self.client.uaclient.read(params)
         readTime = time.time_ns() - start
         return result, readTime
 

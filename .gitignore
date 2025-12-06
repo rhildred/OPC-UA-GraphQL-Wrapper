@@ -8,3 +8,4 @@ env
 winenv
 linenv
 *.csv
+GraphQLWrap/servers.json

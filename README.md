@@ -249,6 +249,13 @@ mutation {
     ) { ok }
 }
 ```
+
+### Cloudflare tunnel to opcua server
+
+```bash
+cloudflared access tcp --hostname <SUBDOMAIN>.<YOURDOMAIN>.com --url 127.0.0.1:<LOCAL_PORT_FORWARD>
+```
+
 ### More resources
 This wrapper was developed as part of Master's thesis:
 Hietala, J. 2020. Real-time two-way data transfer with a Digital Twin via web interface. Master's thesis, Aalto University, Espoo, Finland. Available from: http://urn.fi/URN:NBN:fi:aalto-202003222557
